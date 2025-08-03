@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Burme AI - မြန်မာ့ AI စကားပြောဖော်</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Free Burme AI">
+            <h1>Free Burme AI</h1>
+        </div>
+        <nav>
+            <button id="theme-toggle">အရောင်ပြောင်းမည်</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <button id="new-chat">စကားစပြောမည်</button>
+            <div class="history-list" id="chat-history">
+                <!-- LocalStorage မှ စကားပြောမှတ်တမ်းများ ဖော်ပြမည် -->
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-display" id="chat-display">
+                <!-- စကားပြောစာတိုများ ဖော်ပြမည် -->
+            </div>
+
+            <div class="input-area">
+                <div class="mode-selector">
+                    <button class="active" data-mode="chat">စကားပြော</button>
+                    <button data-mode="image">ပုံထုတ်မည်</button>
+                    <button data-mode="code">ကုဒ်ရေးမည်</button>
+                </div>
+
+                <div class="input-group" id="chat-input">
+                    <textarea placeholder="သင့်စကားစုကိုရိုက်ထည့်ပါ..." id="user-input"></textarea>
+                    <button id="send-btn">ပို့မည်</button>
+                </div>
+
+                <div class="input-group hidden" id="image-input">
+                    <textarea placeholder="သင်လိုချင်သောပုံ၏ အကြောင်းရေးပါ..." id="image-prompt"></textarea>
+                    <button id="generate-btn">ပုံထုတ်မည်</button>
+                </div>
+
+                <div class="input-group hidden" id="code-input">
+                    <textarea placeholder="သင်ရေးလိုသော ကုဒ်၏ အကြောင်းရေးပါ..." id="code-prompt"></textarea>
+                    <button id="code-generate-btn">ကုဒ်ရေးမည်</button>
+                    <select id="language-select">
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="php">PHP</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Free Burme AI. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/image-gen.js"></script>
+    <script src="assets/js/code-editor.js"></script>
+    <script src="assets/js/search.js"></script>
+</body>
+</html>
