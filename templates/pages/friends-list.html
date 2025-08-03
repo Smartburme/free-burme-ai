@@ -1,0 +1,33 @@
+<div class="friends-list-container">
+    <div class="friends-header">
+        <h2>Friends List</h2>
+        <div class="friends-actions">
+            <div class="search-box">
+                <input type="text" id="friendSearch" placeholder="Search friends...">
+                <i class="fas fa-search"></i>
+            </div>
+            <button id="addFriendBtn" class="btn-primary">
+                <i class="fas fa-user-plus"></i> Add Friend
+            </button>
+        </div>
+    </div>
+    
+    <div id="friendsList" class="friends-list">
+        <!-- Friends will be loaded here -->
+    </div>
+</div>
+
+<!-- Add Friend Modal -->
+<div id="addFriendModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Add New Friend</h3>
+        <form id="addFriendForm">
+            <div class="form-group">
+                <label for="friendUsername">Username</label>
+                <input type="text" id="friendUsername" placeholder="Enter friend's username" required>
+            </div>
+            <button type="submit" class="btn-primary">Send Friend Request</button>
+        </form>
+    </div>
+</div>
