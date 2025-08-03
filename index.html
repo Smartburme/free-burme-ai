@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free-Burme-AI</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/pages/chat.css">
+    <link rel="stylesheet" href="styles/pages/image-gen.css">
+    <link rel="stylesheet" href="styles/pages/coder.css">
+    <link rel="stylesheet" href="styles/pages/public-chat.css">
+    <link rel="stylesheet" href="styles/pages/friends-list.css">
+    <link rel="stylesheet" href="styles/pages/friends-chat.css">
+    <link rel="stylesheet" href="styles/components/settings-modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js for code syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -71,6 +80,37 @@
         </div>
     </div>
 
+    <!-- Add Friend Modal -->
+    <div id="addFriendModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Add New Friend</h3>
+            <form id="addFriendForm">
+                <div class="form-group">
+                    <label for="friendUsername">Username</label>
+                    <input type="text" id="friendUsername" placeholder="Enter friend's username" required>
+                </div>
+                <button type="submit" class="btn-primary">Send Friend Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
+    
+    <script src="scripts/router/routes.js" type="module"></script>
+    <script src="scripts/router/router.js" type="module"></script>
+    <script src="scripts/components/settings-modal.js" type="module"></script>
+    <script src="scripts/pages/chat.js" type="module"></script>
+    <script src="scripts/pages/image-gen.js" type="module"></script>
+    <script src="scripts/pages/coder.js" type="module"></script>
+    <script src="scripts/pages/public-chat.js" type="module"></script>
+    <script src="scripts/pages/friends-list.js" type="module"></script>
+    <script src="scripts/pages/friends-chat.js" type="module"></script>
     <script src="scripts/main.js" type="module"></script>
 </body>
 </html>
