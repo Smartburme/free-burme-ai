@@ -1,10 +1,12 @@
 import { routes } from './routes.js';
 
 export async function loadPage() {
-    const path = window.location.hash.substring(2) || 'chat';
+    const path = window.location.hash.substring(2).split('/');
+    const mainPath = path[0] || 'chat';
+    const route = routes[mainPath] || routes['chat'];
+    
     const mainContent = document.getElementById('mainContent');
-    const route = routes[path] || routes['chat']; // Default to chat if route not found
-
+    
     try {
         // Load the template
         const response = await fetch(`templates/pages/${route.template}.html`);
@@ -16,8 +18,10 @@ export async function loadPage() {
         // Update page title
         document.title = `${route.title} | Free-Burme-AI`;
         
-        // Initialize the page
-        await route.init();
+        // Initialize the page with any additional parameters
+        const params = path.slice(1);
+        await route.init(params);
+        
     } catch (error) {
         console.error('Error loading page:', error);
         mainContent.innerHTML = `
