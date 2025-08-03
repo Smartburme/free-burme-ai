@@ -1,0 +1,177 @@
+/* Base Styles */
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #6b7280;
+    --bg-color: #f9fafb;
+    --sidebar-bg: #ffffff;
+    --text-color: #111827;
+    --border-color: #e5e7eb;
+}
+
+body {
+    font-family: 'Noto Sans Myanmar', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.settings-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+/* App Layout */
+.app-container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Menu Items */
+.menu-items {
+    margin-top: 2rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.menu-item:hover {
+    background-color: #f3f4f6;
+}
+
+.menu-item.active {
+    background-color: #eef2ff;
+    color: var(--primary-color);
+}
+
+.menu-item i {
+    margin-right: 0.75rem;
+}
+
+.new-chat-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.new-chat-btn:hover {
+    background-color: #4338ca;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.settings-menu {
+    margin-top: 1.5rem;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.settings-item:hover {
+    background-color: #f3f4f6;
+}
+
+.settings-item i {
+    margin-right: 0.75rem;
+    color: var(--secondary-color);
+}
+
+/* Welcome Message */
+.welcome-message {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.welcome-message h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-message p {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
