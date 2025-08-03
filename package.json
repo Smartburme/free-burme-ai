@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "eslint js/*.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d assets"
+    "deploy": "gh-pages -d js"
   },
   "devDependencies": {
     "jest": "^29.6.2",
