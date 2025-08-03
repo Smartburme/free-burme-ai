@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --mode production",
+    "build": "webpack --config webpack.config.js",
     "test": "jest",
-    "dev": "webpack serve --mode development"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
+    "lint": "eslint js/*.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d assets"
   },
   "devDependencies": {
+    "jest": "^29.6.2",
+    "eslint": "^8.45.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "jest": "^29.6.2"
+    "gh-pages": "^5.0.0"
   }
 }
