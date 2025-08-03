@@ -3,145 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Burme AI - မြန်မာ့ AI အကူအညီ</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Free-Burme-AI</title>
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/images/logo.png" type="image/png">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">Free-Burme-AI</div>
+        <button id="settingsBtn" class="settings-btn">
+            <i class="fas fa-cog"></i>
+        </button>
+    </nav>
+
+    <!-- Main App Container -->
     <div class="app-container">
-        <!-- Title Bar -->
-        <div class="title-bar">
-            <div class="title-bar-left">
-                <img src="assets/images/logo.png" alt="Free Burme AI Logo" class="title-logo" width="28" height="28">
-                <h1 class="title-text">Free Burme AI</h1>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="new-chat-btn" id="newChatBtn">
+                <i class="fas fa-plus"></i> New Chat
+            </button>
+            <div class="menu-items">
+                <a href="#/chat" class="menu-item active" data-page="chat">
+                    <i class="fas fa-comment"></i> Chat Bot
+                </a>
+                <a href="#/image" class="menu-item" data-page="image">
+                    <i class="fas fa-image"></i> Image Generator
+                </a>
+                <a href="#/coder" class="menu-item" data-page="coder">
+                    <i class="fas fa-code"></i> Code Generator
+                </a>
+                <a href="#/public-chat" class="menu-item" data-page="public-chat">
+                    <i class="fas fa-users"></i> Public Chat
+                </a>
+                <a href="#/friends" class="menu-item" data-page="friends">
+                    <i class="fas fa-user-friends"></i> Friends
+                </a>
             </div>
-            <div class="title-bar-right">
-                <button id="minimize-btn" class="title-btn"><i class="fas fa-minus"></i></button>
-                <button id="maximize-btn" class="title-btn"><i class="fas fa-square"></i></button>
-                <button id="close-btn" class="title-btn close-btn"><i class="fas fa-times"></i></button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+            <!-- Dynamic content will be loaded here -->
+            <div class="welcome-message">
+                <h1>Free-Burme-AI မှ ကြိုဆိုပါတယ်</h1>
+                <p>စတင်ရန် sidebar မှ feature တစ်ခုကို ရွေးချယ်ပါ</p>
             </div>
-        </div>
-
-        <!-- App Header -->
-        <header class="app-header">
-            <div class="header-menu">
-                <button id="menu-btn" class="menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="search-box">
-                    <input type="text" placeholder="ရှာဖွေရန်...">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-            <div class="user-controls">
-                <button id="theme-toggle" class="icon-btn" title="အရောင်ပြောင်းမည်">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="settings-btn" class="icon-btn" title="ဆက်တင်များ">
-                    <i class="fas fa-cog"></i>
-                </button>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="app-main">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar-nav">
-                <div class="nav-header">
-                    <h3><i class="fas fa-history"></i> မှတ်တမ်း</h3>
-                    <button id="clear-history" class="small-btn">ရှင်းလင်းမည်</button>
-                </div>
-                <div id="history-view" class="history-view">
-                    <!-- History items will be loaded here -->
-                </div>
-            </nav>
-
-            <!-- Chat Area -->
-            <section class="chat-section">
-                <div id="chat-display" class="chat-display">
-                    <!-- Messages will appear here -->
-                </div>
-
-                <!-- Input Area -->
-                <div class="input-area">
-                    <div class="mode-tabs">
-                        <button class="tab-btn active" data-mode="chat">
-                            <i class="fas fa-comment-dots"></i> စကားပြော
-                        </button>
-                        <button class="tab-btn" data-mode="image">
-                            <i class="fas fa-image"></i> ပုံထုတ်မည်
-                        </button>
-                        <button class="tab-btn" data-mode="code">
-                            <i class="fas fa-code"></i> ကုဒ်ရေးမည်
-                        </button>
-                    </div>
-
-                    <div class="input-container active" id="chat-input">
-                        <textarea placeholder="သင့်စကားစုကိုရိုက်ထည့်ပါ..." rows="1"></textarea>
-                        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-
-                    <div class="input-container" id="image-input">
-                        <textarea placeholder="သင်လိုချင်သောပုံ၏ အကြောင်းရေးပါ..." rows="3"></textarea>
-                        <button class="action-btn"><i class="fas fa-magic"></i> ပုံထုတ်မည်</button>
-                    </div>
-
-                    <div class="input-container" id="code-input">
-                        <textarea placeholder="သင်ရေးလိုသော ကုဒ်၏ အကြောင်းရေးပါ..." rows="3"></textarea>
-                        <div class="code-options">
-                            <select>
-                                <option value="python">Python</option>
-                                <option value="javascript">JavaScript</option>
-                                <option value="html">HTML</option>
-                                <option value="css">CSS</option>
-                            </select>
-                            <button class="action-btn"><i class="fas fa-code"></i> ကုဒ်ရေးမည်</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
+    </div>
 
-        <!-- Bottom Menu Bar -->
-        <footer class="menu-bar">
-            <button class="menu-item active">
-                <i class="fas fa-home"></i>
-                <span>ပင်မ</span>
-            </button>
-            <button class="menu-item">
-                <i class="fas fa-history"></i>
-                <span>မှတ်တမ်း</span>
-            </button>
-            <button class="menu-item">
-                <i class="fas fa-image"></i>
-                <span>ပုံများ</span>
-            </button>
-            <button class="menu-item">
-                <i class="fas fa-code"></i>
-                <span>ကုဒ်များ</span>
-            </button>
-            <button class="menu-item">
-                <i class="fas fa-cog"></i>
-                <span>ဆက်တင်</span>
-            </button>
-        </footer>
-
-        <!-- Settings Panel -->
-        <div id="settings-panel" class="settings-panel">
-            <div class="panel-header">
-                <h3><i class="fas fa-cog"></i> ဆက်တင်များ</h3>
-                <button id="close-settings" class="close-panel"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="panel-content">
-                <!-- Settings content here -->
+    <!-- Settings Modal (Hidden by default) -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSettingsBtn">&times;</span>
+            <h2>Settings</h2>
+            <div class="settings-menu">
+                <button id="profileBtn" class="settings-item">
+                    <i class="fas fa-user-edit"></i> Edit Profile
+                </button>
+                <button id="languageBtn" class="settings-item">
+                    <i class="fas fa-language"></i> Language Settings
+                </button>
+                <button id="aboutBtn" class="settings-item">
+                    <i class="fas fa-info-circle"></i> About
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/chat.js"></script>
-    <script src="js/settings.js"></script>
+    <script src="scripts/main.js" type="module"></script>
 </body>
 </html>
