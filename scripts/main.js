@@ -1,4 +1,3 @@
-// Import necessary modules
 import { loadPage } from './router/router.js';
 import { initSettingsModal } from './components/settings-modal.js';
 
