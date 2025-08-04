@@ -4,25 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free-Burme-AI</title>
+    <!-- Main CSS -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="styles/components/navbar.css">
+    <link rel="stylesheet" href="styles/components/sidebar.css">
+    <link rel="stylesheet" href="styles/components/chat-window.css">
+    <!-- Page CSS -->
     <link rel="stylesheet" href="styles/pages/chat.css">
     <link rel="stylesheet" href="styles/pages/image-gen.css">
     <link rel="stylesheet" href="styles/pages/coder.css">
-    <link rel="stylesheet" href="styles/pages/public-chat.css">
-    <link rel="stylesheet" href="styles/pages/friends-list.css">
-    <link rel="stylesheet" href="styles/pages/friends-chat.css">
-    <link rel="stylesheet" href="styles/components/settings-modal.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Prism.js for code syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="navbar-brand">Free-Burme-AI</div>
-        <button id="settingsBtn" class="settings-btn">
-            <i class="fas fa-cog"></i>
-        </button>
+        <div class="navbar-brand">
+            <i class="fas fa-robot logo-icon"></i>
+            <span>Free-Burme-AI</span>
+        </div>
+        <div class="navbar-actions">
+            <button id="themeToggle" class="icon-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="settingsBtn" class="icon-btn">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
     </nav>
 
     <!-- Main App Container -->
@@ -30,68 +43,96 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <button class="new-chat-btn" id="newChatBtn">
-                <i class="fas fa-plus"></i> New Chat
+                <i class="fas fa-plus"></i> 
+                <span>New Chat</span>
             </button>
             <div class="menu-items">
                 <a href="#/chat" class="menu-item active" data-page="chat">
-                    <i class="fas fa-comment"></i> Chat Bot
+                    <i class="fas fa-comment"></i>
+                    <span>Chat Bot</span>
                 </a>
                 <a href="#/image" class="menu-item" data-page="image">
-                    <i class="fas fa-image"></i> Image Generator
+                    <i class="fas fa-image"></i>
+                    <span>Image Generator</span>
                 </a>
                 <a href="#/coder" class="menu-item" data-page="coder">
-                    <i class="fas fa-code"></i> Code Generator
+                    <i class="fas fa-code"></i>
+                    <span>Code Generator</span>
                 </a>
                 <a href="#/public-chat" class="menu-item" data-page="public-chat">
-                    <i class="fas fa-users"></i> Public Chat
+                    <i class="fas fa-users"></i>
+                    <span>Public Chat</span>
                 </a>
                 <a href="#/friends" class="menu-item" data-page="friends">
-                    <i class="fas fa-user-friends"></i> Friends
+                    <i class="fas fa-user-friends"></i>
+                    <span>Friends</span>
                 </a>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <span class="username">Guest User</span>
+                    <span class="status">Online</span>
+                </div>
             </div>
         </aside>
 
         <!-- Main Content Area -->
         <main class="main-content" id="mainContent">
-            <!-- Dynamic content will be loaded here -->
             <div class="welcome-message">
-                <h1>Free-Burme-AI မှ ကြိုဆိုပါတယ်</h1>
-                <p>စတင်ရန် sidebar မှ feature တစ်ခုကို ရွေးချယ်ပါ</p>
+                <div class="welcome-content">
+                    <i class="fas fa-robot welcome-icon"></i>
+                    <h1>Free-Burme-AI မှ ကြိုဆိုပါတယ်</h1>
+                    <p>စတင်ရန် sidebar မှ feature တစ်ခုကို ရွေးချယ်ပါ</p>
+                    <div class="welcome-features">
+                        <div class="feature-card">
+                            <i class="fas fa-comment"></i>
+                            <h3>AI Chat Bot</h3>
+                            <p>မေးခွန်းများမေးရန် အကူအညီရယူပါ</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-image"></i>
+                            <h3>Image Generator</h3>
+                            <p>စိတ်ကူးရှိသော ပုံများဖန်တီးပါ</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-code"></i>
+                            <h3>Code Generator</h3>
+                            <p>ကုဒ်များရေးသားရန် အကူအညီရယူပါ</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 
-    <!-- Settings Modal (Hidden by default) -->
+    <!-- Settings Modal -->
     <div class="modal" id="settingsModal">
         <div class="modal-content">
             <span class="close-btn" id="closeSettingsBtn">&times;</span>
-            <h2>Settings</h2>
-            <div class="settings-menu">
-                <button id="profileBtn" class="settings-item">
-                    <i class="fas fa-user-edit"></i> Edit Profile
+            <h2><i class="fas fa-cog"></i> Settings</h2>
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="profile">
+                    <i class="fas fa-user-edit"></i> Profile
                 </button>
-                <button id="languageBtn" class="settings-item">
-                    <i class="fas fa-language"></i> Language Settings
+                <button class="tab-btn" data-tab="language">
+                    <i class="fas fa-language"></i> Language
                 </button>
-                <button id="aboutBtn" class="settings-item">
+                <button class="tab-btn" data-tab="about">
                     <i class="fas fa-info-circle"></i> About
                 </button>
             </div>
-        </div>
-    </div>
-
-    <!-- Add Friend Modal -->
-    <div id="addFriendModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>Add New Friend</h3>
-            <form id="addFriendForm">
-                <div class="form-group">
-                    <label for="friendUsername">Username</label>
-                    <input type="text" id="friendUsername" placeholder="Enter friend's username" required>
-                </div>
-                <button type="submit" class="btn-primary">Send Friend Request</button>
-            </form>
+            <div class="tab-content" id="profileTab">
+                <!-- Profile content will be loaded here -->
+            </div>
+            <div class="tab-content hidden" id="languageTab">
+                <!-- Language content will be loaded here -->
+            </div>
+            <div class="tab-content hidden" id="aboutTab">
+                <!-- About content will be loaded here -->
+            </div>
         </div>
     </div>
 
@@ -102,9 +143,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
     
+    <script src="scripts/utils/storage.js" type="module"></script>
+    <script src="scripts/utils/helpers.js" type="module"></script>
+    <script src="scripts/services/api.js" type="module"></script>
+    <script src="scripts/services/auth.js" type="module"></script>
+    <script src="scripts/components/navbar.js" type="module"></script>
+    <script src="scripts/components/sidebar.js" type="module"></script>
+    <script src="scripts/components/settings-modal.js" type="module"></script>
     <script src="scripts/router/routes.js" type="module"></script>
     <script src="scripts/router/router.js" type="module"></script>
-    <script src="scripts/components/settings-modal.js" type="module"></script>
     <script src="scripts/pages/chat.js" type="module"></script>
     <script src="scripts/pages/image-gen.js" type="module"></script>
     <script src="scripts/pages/coder.js" type="module"></script>
