@@ -1,7 +1,10 @@
 .coder-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.5rem;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
 }
 
 .coder-header {
@@ -14,138 +17,159 @@
     margin-bottom: 0.5rem;
 }
 
+.coder-header p {
+    color: var(--text-secondary);
+}
+
+.code-input-container {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+}
+
+.code-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--text-color);
 }
 
-.form-group textarea {
+.code-description {
     width: 100%;
     padding: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
-    font-family: monospace;
+    font-family: inherit;
     resize: vertical;
     min-height: 120px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-.form-group select {
+.code-description:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.language-select {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: inherit;
 }
 
-.code-result-container {
-    margin-top: 2rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    overflow: hidden;
+.language-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.code-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.code-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .code-result-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
-    background-color: #f3f4f6;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
 }
 
 .code-result-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.btn-secondary {
-    background-color: white;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    padding: 0.5rem 1rem;
+}
+
+.code-result-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.code-block {
+    flex: 1;
+    background-color: #1E1E1E;
     border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 0.9rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.btn-secondary:hover {
-    background-color: #eef2ff;
-}
-
-.code-result {
-    padding: 1rem;
-    background-color: #1e1e1e;
-    color: #f8f8f2;
-    overflow-x: auto;
-}
-
-pre {
+.code-block pre {
     margin: 0;
-    font-family: monospace;
-    white-space: pre-wrap;
+    height: 100%;
+    overflow: auto;
 }
 
-/* Prism.js overrides */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-    color: #8292a2;
+.code-block code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-.token.punctuation {
-    color: #f8f8f2;
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
-.token.property,
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    color: #f92672;
+.copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.token.boolean,
-.token.number {
-    color: #ae81ff;
+.copy-btn.copied {
+    background-color: var(--success-color);
 }
 
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    color: #a6e22e;
+.empty-code-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
 }
 
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-    color: #f8f8f2;
+.empty-code-state i {
+    font-size: 4rem;
+    color: var(--primary-light);
+    margin-bottom: 1.5rem;
 }
 
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name {
-    color: #e6db74;
-}
-
-.token.keyword {
-    color: #66d9ef;
-}
-
-.token.regex,
-.token.important {
-    color: #fd971f;
-}
+.empty-code-state h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    }
